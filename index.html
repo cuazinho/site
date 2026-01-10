@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>⚡ Eletrônicos Baratos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 480px;
+      margin: auto;
+      padding: 16px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    header img {
+      width: 90px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      margin: 5px 0;
+    }
+
+    header p {
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    /* BARRA DE PESQUISA */
+    #searchInput {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 18px;
+      border-radius: 8px;
+      border: none;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .product {
+      background: #1c1c1c;
+      border-radius: 10px;
+      overflow: hidden;
+      text-decoration: none;
+      color: #fff;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .product:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 10px rgba(0,255,200,0.4);
+    }
+
+    .product img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .product span {
+      display: block;
+      padding: 10px;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      margin: 25px 0 10px;
+      font-size: 12px;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <header>
+      <img src="https://cdn-icons-png.flaticon.com/512/6493/6493694.png" alt="perfil">
+      <h1>⚡ Eletrônicos Baratos</h1>
+      <p>Achadinhos úteis que valem a pena</p>
+    </header>
+
+    <!-- BARRA DE PESQUISA -->
+    <input 
+      type="text" 
+      id="searchInput" 
+      placeholder="🔍 Pesquisar produto..."
+      onkeyup="filterProducts()"
+    >
+
+    <div class="grid">
+
+      <a class="product item" href="https://s.shopee.com.br/20p6ZNFeP5" target="_blank">
+        <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-m83jfmoih5gxb7@resize_w450_nl.webp">
+        <span>Headset Fone Gamer Led RGB com microfone USB e P2</span>
+      </a>
+
+      <a class="product item" href="https://s.shopee.com.br/7AXCj15PKh" target="_blank">
+        <img src="https://down-br.img.susercontent.com/file/sg-11134201-7qvdt-lgoysbcjq8h06a@resize_w450_nl.webp">
+        <span>Fone de Ouvido Bluetooth E6S TWS 5.0</span>
+      </a>
+
+      <a class="product item" href="https://s.shopee.com.br/9fEXhy94SJ" target="_blank">
+        <img src="https://down-br.img.susercontent.com/file/sg-11134201-824h4-me8gm4ln7hmq24@resize_w450_nl.webp">
+        <span>PRO 4/3 Mini TWS Bluetooth 5.3</span>
+      </a>
+
+      <a class="product item" href="https://s.shopee.com.br/AUnehi0eAu" target="_blank">
+        <img src="https://down-br.img.susercontent.com/file/br-11134211-7qukw-lixnx72umpof16@resize_w450_nl.webp">
+        <span>Power Bank Pineng 10.000mAh</span>
+      </a>
+
+      <a class="product item" href="https://s.shopee.com.br/5Am8MEdPKc" target="_blank">
+        <img src="https://down-br.img.susercontent.com/file/sg-11134201-824g5-me1axtdxfaiv9a@resize_w450_nl.webp">
+        <span>Vídeo Game Stick M15 Pro 4K</span>
+      </a>
+
+      <a class="product" href="https://s.shopee.com.br/30hdsyt3pR" target="_blank">
+  <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-ly6xy5ct376t81.webp">
+  <span>Adaptador USB C Fêmea 3.0 OTG Pen Drive Conversor Diversos Modelos - Escolha seu Kit</span>
+</a>
+
+<a class="product" href="https://s.shopee.com.br/5VOyrvezJ1" target="_blank">
+  <img src="https://down-br.img.susercontent.com/file/sg-11134201-7rce1-lqurgzr7a0cy17.webp">
+  <span>Mouse sem fio dual band receptor nano 2,4ghz / Bluetooth RGB recarregável MS-S350L</span>
+</a>
+
+<a class="product" href="https://s.shopee.com.br/9fEXpvhFON" target="_blank">
+  <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-md1qwaocepf69e.webp">
+  <span>Mouse Gamer 1200 Dpi Ajustável - Ótico Com Fio Luz Led</span>
+</a>
+
+<a class="product" href="https://s.shopee.com.br/4AtbI1fKqK" target="_blank">
+  <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98q-llp00ht7l0s719@resize_w450_nl.webp">
+  <span>Mouse Gamer iluminação RGB design ergonômico confortável 4800 DPI</span>
+</a>
+
+<a class="product" href="https://s.shopee.com.br/3LKUIcjbgZ" target="_blank">
+  <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-lt2qowiem0wddb.webp">
+  <span>Kit Mobilador Gamer Para Android Com Teclado Mouse Tripé e Adaptador C ou V8 Free Fire</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+<a class="product" href="SEU_LINK_AFILIADO_AQUI" target="_blank">
+  <img src="LINK_DA_IMAGEM_DO_PRODUTO">
+  <span>NOME DO PRODUTO</span>
+</a>
+
+
+    </div>
+
+    <footer>
+      © 2026 • Links afiliados
+    </footer>
+
+  </div>
+
+  <!-- JAVASCRIPT DA PESQUISA -->
+  <script>
+    function filterProducts() {
+      const input = document.getElementById("searchInput");
+      const filter = input.value.toLowerCase();
+      const items = document.getElementsByClassName("item");
+
+      for (let i = 0; i < items.length; i++) {
+        const text = items[i].innerText.toLowerCase();
+        items[i].style.display = text.includes(filter) ? "" : "none";
+      }
+    }
+  </script>
+
+</body>
+</html>
